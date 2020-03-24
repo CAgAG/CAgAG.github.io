@@ -36,7 +36,7 @@
     
     
       
-        <title>BubbleSort - Agc Docs</title>
+        <title>SelectSort - Agc Docs</title>
       
     
     
@@ -101,7 +101,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                BubbleSort
+                SelectSort
               
             </span>
           
@@ -222,6 +222,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../BubbleSort/" title="BubbleSort" class="md-nav__link">
+      BubbleSort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -232,72 +244,10 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        BubbleSort
-      </label>
-    
-    <a href="./" title="BubbleSort" class="md-nav__link md-nav__link--active">
-      BubbleSort
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    算法思想
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    算法性能
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    算法实现
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    链式冒泡排序实现
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../SelectSort/" title="SelectSort" class="md-nav__link">
+    <a href="./" title="SelectSort" class="md-nav__link md-nav__link--active">
       SelectSort
     </a>
+    
   </li>
 
         
@@ -328,43 +278,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    算法思想
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    算法性能
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    算法实现
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    链式冒泡排序实现
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -376,76 +289,76 @@
               
                 
                 
-                <h1 id="_1">冒泡排序</h1>
-<p><img src="/images/sort-bubble.gif"  height="300" width=""></p>
-<h2 id="_2">算法思想</h2>
-<p>冒泡排序属于典型的交换排序, 也就是通过交换符合条件的元素来进行排序. 在冒泡排序中, 交换的是相邻元素.</p>
-<p>假设有数组:</p>
+                <h1 id="_1">选择排序</h1>
+<p><img alt="sort-select" src="/images/sort-select.gif" /></p>
+<h1 id="_2">算法思路</h1>
+<p>从头至尾扫描序列，将当前位置到序列尾看成一个区间, 在区间内找出最小的一个元素，与区间的第一个元素交换，接着从剩下的元素中继续这种选择和交换方式，最终得到一个有序序列。举个例子: </p>
 <table>
 <thead>
 <tr>
-<th>位置</th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
+<th align="center">位置</th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>值</td>
-<td>$ a $</td>
-<td>$ b $</td>
-<td>$ c $</td>
+<td align="center">值</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">区间</td>
+<td align="center">$ i $</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
-<p>以升序为例, 通过比较相邻元素的大小, 先比较0, 1位置若</p>
-<pre><code>a &gt; b, 则交换a, b的值
-a &lt;= b, 则不交换
-</code></pre>
-<p>$ a, b $比较之后, 前进一位到位置1, 接下来比较位置1, 2. 一直进行比较和交换直到数组尾. 这就是冒泡的一趟排序, 这个过程其实可以看成把最大值移动到数组尾的过程, 由于一趟排序不能保证已经升序, 所以之后还需要继续.</p>
-<p>到什么时候结束呢?</p>
-<p>由于每一趟都是把当前最大值放到每趟最后, 所以每一趟都可以少比较一次, 一个比较粗暴的方法就是比较(假设数组有$ n $个元素) $ n $-1趟. 当然也可以优化一下, 其实只要在一趟排序中没有一次交换, 也就是已经排好序了.</p>
-<h2 id="_3">算法性能</h2>
+<p>$ i $到序列最后组成一个区间,  在位置0-3中找出区间的最小值, 也就是值1(位置1), 找到后将位置1与区间第一个位置(位置0)进行交换, 然后$ i $向后移一位, 指向位置1组成新的区间. 一直重复, 直到$ i $到序列尾.</p>
+<h1 id="_3">算法性能</h1>
 <table>
 <thead>
 <tr>
-<th align="center">最好</th>
-<th align="center">最坏</th>
-<th align="center">平均</th>
-<th align="center">空间</th>
+<th align="center">平均时间复杂度</th>
+<th align="center">最好情况</th>
+<th align="center">最坏情况</th>
+<th align="center">空间复杂度</th>
 <th align="center">稳定</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">$ O $($ n $)</td>
-<td align="center">$ O $($ n^2 $)</td>
-<td align="center">$ O $($ n^2 $)</td>
-<td align="center">1</td>
-<td align="center">稳定</td>
+<td align="center">$ O(n^2) $</td>
+<td align="center">$ O(n^2) $</td>
+<td align="center">$ O(n^2) $</td>
+<td align="center">$ O(1) $</td>
+<td align="center">不稳定</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_4">算法实现</h2>
-<p>Python3 实现</p>
-<pre><code class="python">def bubbleSort(arr: list):
+<h1 id="_4">算法实现</h1>
+<p>Python3 实现: </p>
+<pre><code class="python">def selectSort(arr: list):
     length = len(arr)
-    for i in range(length-1):
-        flag = True
-        for j in range(length-i-1):
-            if arr[j] &gt; arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-                flag = False
-        if flag:
-            break
+    for i in range(length):
+        minIndex = i
+        for j in range(i+1, length):
+            if arr[minIndex] &gt; arr[j]:
+                minIndex = j
+
+        arr[minIndex], arr[i] = arr[i], arr[minIndex]
     return arr
 </code></pre>
 
-<h2 id="_5">链式冒泡排序实现</h2>
-<p>说完了数组版的冒泡排序,  链表要怎么应用冒泡排序呢?</p>
-<p>实现和数组是一样的, 可以交换值, 也可以交换节点, 下面以交换值为例, </p>
-<p><a href="https://github.com/CAgAG/DataStructure_Golang/blob/master/DataSort/SimpleSort/BubbleSort.go">Golang实现</a></p>
+<h1 id="_5">链式选择排序实现</h1>
+<p>在链表中实现选择排序需要用到2个指针, 要注意指针的结束条件, 本次以交换值来实现</p>
+<p><a href="https://github.com/CAgAG/DataStructure_Golang/blob/master/DataSort/SimpleSort/SelectSort.go">Golang实现</a></p>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 <script type="text/x-mathjax-config">
@@ -474,7 +387,7 @@ MathJax.Hub.Config({
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="index" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../BubbleSort/" title="BubbleSort" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -483,25 +396,11 @@ MathJax.Hub.Config({
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                index
+                BubbleSort
               </span>
             </div>
           </a>
         
-        
-          <a href="../SelectSort/" title="SelectSort" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                SelectSort
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
