@@ -244,10 +244,72 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        SelectSort
+      </label>
+    
     <a href="./" title="SelectSort" class="md-nav__link md-nav__link--active">
       SelectSort
     </a>
     
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    算法思路
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    算法性能
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    算法实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    链式选择排序实现
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../InsertSort/" title="InsertSort" class="md-nav__link">
+      InsertSort
+    </a>
   </li>
 
         
@@ -278,6 +340,43 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    算法思路
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    算法性能
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    算法实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    链式选择排序实现
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -291,7 +390,7 @@
                 
                 <h1 id="_1">选择排序</h1>
 <p><img alt="sort-select" src="/images/sort-select.gif" /></p>
-<h1 id="_2">算法思路</h1>
+<h2 id="_2">算法思路</h2>
 <p>从头至尾扫描序列，将当前位置到序列尾看成一个区间, 在区间内找出最小的一个元素，与区间的第一个元素交换，接着从剩下的元素中继续这种选择和交换方式，最终得到一个有序序列。举个例子: </p>
 <table>
 <thead>
@@ -321,7 +420,7 @@
 </tbody>
 </table>
 <p>$ i $到序列最后组成一个区间,  在位置0-3中找出区间的最小值, 也就是值1(位置1), 找到后将位置1与区间第一个位置(位置0)进行交换, 然后$ i $向后移一位, 指向位置1组成新的区间. 一直重复, 直到$ i $到序列尾.</p>
-<h1 id="_3">算法性能</h1>
+<h2 id="_3">算法性能</h2>
 <table>
 <thead>
 <tr>
@@ -342,7 +441,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="_4">算法实现</h1>
+<h2 id="_4">算法实现</h2>
 <p>Python3 实现: </p>
 <pre><code class="python">def selectSort(arr: list):
     length = len(arr)
@@ -356,8 +455,8 @@
     return arr
 </code></pre>
 
-<h1 id="_5">链式选择排序实现</h1>
-<p>在链表中实现选择排序需要用到2个指针, 要注意指针的结束条件, 本次以交换值来实现</p>
+<h2 id="_5">链式选择排序实现</h2>
+<p>在单链表选择排序实现用到2个指针, 要注意指针的结束条件:</p>
 <p><a href="https://github.com/CAgAG/DataStructure_Golang/blob/master/DataSort/SimpleSort/SelectSort.go">Golang实现</a></p>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
@@ -401,6 +500,20 @@ MathJax.Hub.Config({
             </div>
           </a>
         
+        
+          <a href="../InsertSort/" title="InsertSort" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                InsertSort
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
